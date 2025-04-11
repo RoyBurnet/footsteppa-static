@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+
+    --card: 0 0% 3%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 3%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
+
+    --secondary: 0 0% 10%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 0 0% 100%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.channel-button {
+  @apply relative flex items-center gap-3 w-full rounded-full bg-secondary/80 backdrop-blur-sm p-4 transition-all hover:bg-secondary;
+}
+
+.video-card {
+  @apply relative overflow-hidden rounded-lg bg-card;
+}
+
+.video-card-image {
+  @apply aspect-video w-full object-cover transition-transform duration-300;
+}
+
+.group:hover .video-card-image {
+  @apply scale-105;
+}
+
+.video-card-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 transition-opacity;
+}
+
+.group:hover .video-card-overlay {
+  @apply opacity-100;
+}
+
+.video-card-content {
+  @apply absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent;
+}
+
+.nav-link {
+  @apply text-sm font-medium text-gray-300 hover:text-white transition-colors;
+}
+
+.hero-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent;
+}
