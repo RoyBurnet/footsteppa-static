@@ -10,8 +10,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Footsteppa",
-  description: "Underground music broadcasting since 1994",
-  generator: "v0.dev",
+  description: "Underground music broadcasting since 2002",
+  generator: "codingOG",
 };
 
 export default function RootLayout({
