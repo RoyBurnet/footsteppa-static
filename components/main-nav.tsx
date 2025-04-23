@@ -1,17 +1,17 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Play, Search, ChevronRight } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Play, Search, ChevronRight } from "lucide-react";
 
 const channels = [
   {
-    name: "Rinse UK",
+    name: "Footsteppa UK",
     slug: "uk",
     currentShow: {
       time: "21:00",
@@ -24,7 +24,7 @@ const channels = [
     },
   },
   {
-    name: "Rinse France",
+    name: "Footsteppa France",
     slug: "france",
     currentShow: {
       time: "21:00",
@@ -62,10 +62,10 @@ const channels = [
       name: "Toby Ross",
     },
   },
-]
+];
 
 export function MainNav() {
-  const [showSchedule, setShowSchedule] = useState(false)
+  const [showSchedule, setShowSchedule] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-gradient-to-b from-black/80 to-transparent backdrop-blur-sm">
@@ -74,7 +74,7 @@ export function MainNav() {
           <Link href="/" className="flex items-center">
             <Image
               src="/placeholder.svg?height=40&width=120"
-              alt="Rinse FM Logo"
+              alt="Footsteppa Logo"
               width={120}
               height={40}
               className="h-10"
@@ -104,9 +104,13 @@ export function MainNav() {
                           <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
                               <Avatar className="h-6 w-6">
-                                <AvatarFallback>{channel.name[0]}</AvatarFallback>
+                                <AvatarFallback>
+                                  {channel.name[0]}
+                                </AvatarFallback>
                               </Avatar>
-                              <span className="text-sm font-medium">{channel.name}</span>
+                              <span className="text-sm font-medium">
+                                {channel.name}
+                              </span>
                             </div>
                             <Link
                               href={`/channels/${channel.slug}`}
@@ -119,7 +123,9 @@ export function MainNav() {
 
                           <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-900">
                             <Image
-                              src={channel.currentShow.image || "/placeholder.svg"}
+                              src={
+                                channel.currentShow.image || "/placeholder.svg"
+                              }
                               alt={channel.currentShow.name}
                               layout="fill"
                               objectFit="cover"
@@ -134,8 +140,12 @@ export function MainNav() {
                             <div className="absolute bottom-0 left-0 right-0 p-3">
                               <div className="flex items-center justify-between">
                                 <div>
-                                  <p className="text-sm font-medium">{channel.currentShow.time}</p>
-                                  <p className="text-sm text-gray-300 truncate">{channel.currentShow.name}</p>
+                                  <p className="text-sm font-medium">
+                                    {channel.currentShow.time}
+                                  </p>
+                                  <p className="text-sm text-gray-300 truncate">
+                                    {channel.currentShow.name}
+                                  </p>
                                 </div>
                                 <Button
                                   size="icon"
@@ -149,10 +159,14 @@ export function MainNav() {
                           </div>
 
                           <div className="flex items-center text-sm text-gray-400">
-                            <span className="text-xs uppercase mr-2">Up next</span>
+                            <span className="text-xs uppercase mr-2">
+                              Up next
+                            </span>
                             <span>{channel.nextShow.time}</span>
                             <span className="mx-2">·</span>
-                            <span className="truncate">{channel.nextShow.name}</span>
+                            <span className="truncate">
+                              {channel.nextShow.name}
+                            </span>
                           </div>
                         </div>
                       ))}
@@ -183,22 +197,32 @@ export function MainNav() {
           </div>
           <div className="flex items-center gap-3">
             <Avatar className="h-8 w-8 ring-1 ring-white/20">
-              <AvatarImage src="/placeholder.svg?height=32&width=32" alt="Current show" />
+              <AvatarImage
+                src="/placeholder.svg?height=32&width=32"
+                alt="Current show"
+              />
               <AvatarFallback>DJ</AvatarFallback>
             </Avatar>
             <div className="hidden md:block">
               <p className="text-xs font-medium">Oneman</p>
               <p className="text-xs text-gray-400">UK</p>
             </div>
-            <Badge variant="outline" className="bg-secondary/80 border-white/10">
+            <Badge
+              variant="outline"
+              className="bg-secondary/80 border-white/10"
+            >
               ON AIR
             </Badge>
-            <Button size="icon" variant="ghost" className="rounded-full bg-white text-black hover:bg-gray-200">
+            <Button
+              size="icon"
+              variant="ghost"
+              className="rounded-full bg-white text-black hover:bg-gray-200"
+            >
               <Play className="h-4 w-4 fill-current" />
             </Button>
           </div>
         </div>
       </div>
     </header>
-  )
+  );
 }

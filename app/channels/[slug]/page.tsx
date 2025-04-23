@@ -1,16 +1,17 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Play, Calendar, Clock } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Play, Calendar, Clock } from "lucide-react";
 
 // This is a mock function to simulate fetching channel data
 function getChannelData(slug: string) {
   const channels = {
     uk: {
-      name: "Rinse UK",
-      description: "The original Rinse FM channel broadcasting from London since 1994.",
+      name: "Footsteppa UK",
+      description:
+        "The original Footsteppa FM channel broadcasting from London since 1994.",
       image: "/placeholder.svg",
       currentShow: {
         name: "Oneman",
@@ -70,7 +71,11 @@ function getChannelData(slug: string) {
         },
       ],
       recentShows: [
-        { name: "Sofia Kourtesis", date: "27/02/2025", image: "/placeholder.svg" },
+        {
+          name: "Sofia Kourtesis",
+          date: "27/02/2025",
+          image: "/placeholder.svg",
+        },
         { name: "Eliza Rose", date: "21/02/2025", image: "/placeholder.svg" },
         { name: "Jyoty", date: "15/02/2025", image: "/placeholder.svg" },
         { name: "Sherelle", date: "08/02/2025", image: "/placeholder.svg" },
@@ -79,8 +84,9 @@ function getChannelData(slug: string) {
       ],
     },
     france: {
-      name: "Rinse France",
-      description: "Broadcasting from Paris, bringing you the best in French electronic music.",
+      name: "Footsteppa France",
+      description:
+        "Broadcasting from Paris, bringing you the best in French electronic music.",
       image: "/placeholder.svg",
       currentShow: {
         name: "Maboul Basmati",
@@ -140,8 +146,16 @@ function getChannelData(slug: string) {
         },
       ],
       recentShows: [
-        { name: "GREG B2B De Grandi", date: "27/02/2025", image: "/placeholder.svg" },
-        { name: "Maboul Basmati", date: "21/02/2025", image: "/placeholder.svg" },
+        {
+          name: "GREG B2B De Grandi",
+          date: "27/02/2025",
+          image: "/placeholder.svg",
+        },
+        {
+          name: "Maboul Basmati",
+          date: "21/02/2025",
+          image: "/placeholder.svg",
+        },
         { name: "Carin Kelly", date: "17/02/2025", image: "/placeholder.svg" },
         { name: "Poté", date: "22/02/2025", image: "/placeholder.svg" },
         { name: "Ygal Ohayon", date: "22/02/2025", image: "/placeholder.svg" },
@@ -215,16 +229,29 @@ function getChannelData(slug: string) {
           date: "27/02/2025",
           image: "/placeholder.svg",
         },
-        { name: "Pola & Bryson", date: "21/02/2025", image: "/placeholder.svg" },
-        { name: "Kool FM x Fabric Live", date: "21/12/2023", image: "/placeholder.svg" },
-        { name: "Kool Originals", date: "23/02/2025", image: "/placeholder.svg" },
+        {
+          name: "Pola & Bryson",
+          date: "21/02/2025",
+          image: "/placeholder.svg",
+        },
+        {
+          name: "Kool FM x Fabric Live",
+          date: "21/12/2023",
+          image: "/placeholder.svg",
+        },
+        {
+          name: "Kool Originals",
+          date: "23/02/2025",
+          image: "/placeholder.svg",
+        },
         { name: "Born On Road", date: "20/02/2025", image: "/placeholder.svg" },
         { name: "DJ Brockie", date: "10/08/2024", image: "/placeholder.svg" },
       ],
     },
     swu: {
       name: "SWU FM",
-      description: "South West Underground - Bristol's underground music station.",
+      description:
+        "South West Underground - Bristol's underground music station.",
       image: "/placeholder.svg",
       currentShow: {
         name: "SPICYIVY",
@@ -284,21 +311,33 @@ function getChannelData(slug: string) {
         },
       ],
       recentShows: [
-        { name: "Get To Know: Chinese Daughter", date: "27/02/2025", image: "/placeholder.svg" },
+        {
+          name: "Get To Know: Chinese Daughter",
+          date: "27/02/2025",
+          image: "/placeholder.svg",
+        },
         { name: "Oblig", date: "11/02/2025", image: "/placeholder.svg" },
-        { name: "Surgeons Girl", date: "16/02/2025", image: "/placeholder.svg" },
+        {
+          name: "Surgeons Girl",
+          date: "16/02/2025",
+          image: "/placeholder.svg",
+        },
         { name: "DJ Swisha", date: "20/02/2025", image: "/placeholder.svg" },
         { name: "Otik", date: "01/03/2025", image: "/placeholder.svg" },
-        { name: "Sam Binga & Foreign Concept", date: "16/02/2025", image: "/placeholder.svg" },
+        {
+          name: "Sam Binga & Foreign Concept",
+          date: "16/02/2025",
+          image: "/placeholder.svg",
+        },
       ],
     },
-  }
+  };
 
-  return channels[slug as keyof typeof channels]
+  return channels[slug as keyof typeof channels];
 }
 
 export default function ChannelPage({ params }: { params: { slug: string } }) {
-  const channel = getChannelData(params.slug)
+  const channel = getChannelData(params.slug);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -339,7 +378,9 @@ export default function ChannelPage({ params }: { params: { slug: string } }) {
                 <Badge variant="outline" className="mb-2">
                   LIVE
                 </Badge>
-                <h3 className="text-3xl font-bold mb-2">{channel.currentShow.name}</h3>
+                <h3 className="text-3xl font-bold mb-2">
+                  {channel.currentShow.name}
+                </h3>
                 <p className="text-gray-400 mb-4">{channel.currentShow.time}</p>
                 <Button className="gap-2">
                   <Play className="h-4 w-4" />
@@ -374,7 +415,10 @@ export default function ChannelPage({ params }: { params: { slug: string } }) {
 
             <div className="space-y-4">
               {channel.schedule[0].shows.map((show, index) => (
-                <div key={index} className="flex items-center justify-between p-3 hover:bg-gray-800 rounded-lg">
+                <div
+                  key={index}
+                  className="flex items-center justify-between p-3 hover:bg-gray-800 rounded-lg"
+                >
                   <div className="flex items-center gap-3">
                     <div className="flex items-center justify-center h-10 w-10 rounded-full bg-gray-800">
                       <Clock className="h-5 w-5 text-gray-400" />
@@ -413,12 +457,18 @@ export default function ChannelPage({ params }: { params: { slug: string } }) {
                     </Avatar>
                   </div>
                   <div className="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black to-transparent">
-                    <Button size="sm" variant="ghost" className="rounded-full bg-white text-black hover:bg-gray-200">
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="rounded-full bg-white text-black hover:bg-gray-200"
+                    >
                       <Play className="h-4 w-4 fill-current" />
                     </Button>
                   </div>
                 </div>
-                <h3 className="font-semibold text-sm group-hover:underline line-clamp-2">{show.name}</h3>
+                <h3 className="font-semibold text-sm group-hover:underline line-clamp-2">
+                  {show.name}
+                </h3>
                 <p className="text-xs text-gray-400">{show.date}</p>
               </Link>
             ))}
@@ -426,5 +476,5 @@ export default function ChannelPage({ params }: { params: { slug: string } }) {
         </section>
       </div>
     </div>
-  )
+  );
 }

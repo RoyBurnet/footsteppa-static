@@ -1,9 +1,9 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Play } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Play } from "lucide-react";
 
 const liveShows = [
   {
@@ -27,10 +27,16 @@ const liveShows = [
     image: "/placeholder.svg",
     slug: "kool-kuts-27-02-2025-1200",
   },
-  { channel: "SWU FM", name: "SPICYIVY", time: "12:00", image: "/placeholder.svg", slug: "spicyivy-27-02-2025-1200" },
-]
+  {
+    channel: "SWU FM",
+    name: "SPICYIVY",
+    time: "12:00",
+    image: "/placeholder.svg",
+    slug: "spicyivy-27-02-2025-1200",
+  },
+];
 
-const channels = ["Rinse UK", "Rinse France", "Kool FM", "SWU FM"]
+const channels = ["Footsteppa UK", "Footsteppa France", "Kool FM", "SWU FM"];
 
 const upcomingShows = [
   {
@@ -43,7 +49,8 @@ const upcomingShows = [
   {
     time: "13:00",
     name: "Talina",
-    description: "Talina on Rinse FM. Lock in live for the lunch show, every Monday - Thursday from 1 till 3pm.",
+    description:
+      "Talina on Footsteppa. Lock in live for the lunch show, every Monday - Thursday from 1 till 3pm.",
     image: "/placeholder.svg",
     slug: "talina-27-02-2025-1300",
   },
@@ -63,7 +70,7 @@ const upcomingShows = [
     image: "/placeholder.svg",
     slug: "lila-with-felixcw-27-02-2025-1700",
   },
-]
+];
 
 export default function SchedulePage() {
   return (
@@ -76,7 +83,10 @@ export default function SchedulePage() {
           <h2 className="text-2xl font-semibold mb-4">Live on air</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             {liveShows.map((show, index) => (
-              <div key={index} className="bg-gray-900 rounded-lg overflow-hidden">
+              <div
+                key={index}
+                className="bg-gray-900 rounded-lg overflow-hidden"
+              >
                 <div className="flex items-center p-4">
                   <Image
                     src={show.image || "/placeholder.svg"}
@@ -112,7 +122,11 @@ export default function SchedulePage() {
           </div>
           <div className="flex space-x-4 mb-6">
             {channels.map((channel, index) => (
-              <Button key={index} variant={index === 0 ? "default" : "outline"} size="sm">
+              <Button
+                key={index}
+                variant={index === 0 ? "default" : "outline"}
+                size="sm"
+              >
                 <Avatar className="h-4 w-4 mr-2">
                   <AvatarFallback>{channel[0]}</AvatarFallback>
                 </Avatar>
@@ -122,7 +136,10 @@ export default function SchedulePage() {
           </div>
           <div className="space-y-4">
             {upcomingShows.map((show, index) => (
-              <div key={index} className="flex items-start space-x-4 bg-gray-900 p-4 rounded-lg">
+              <div
+                key={index}
+                className="flex items-start space-x-4 bg-gray-900 p-4 rounded-lg"
+              >
                 <Image
                   src={show.image || "/placeholder.svg"}
                   alt={show.name}
@@ -140,8 +157,13 @@ export default function SchedulePage() {
                       </Badge>
                     )}
                   </div>
-                  <p className="text-sm text-gray-400 mb-2">{show.description}</p>
-                  <Link href={`/episodes/${show.slug}`} className="text-sm text-gray-400 hover:text-white">
+                  <p className="text-sm text-gray-400 mb-2">
+                    {show.description}
+                  </p>
+                  <Link
+                    href={`/episodes/${show.slug}`}
+                    className="text-sm text-gray-400 hover:text-white"
+                  >
                     View show →
                   </Link>
                 </div>
@@ -154,5 +176,5 @@ export default function SchedulePage() {
         </section>
       </div>
     </div>
-  )
+  );
 }

@@ -1,28 +1,55 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 // This is a mock function to simulate fetching product data
 function getProductData(slug: string) {
   return {
-    name: "Rinse 30th Anniversary Classic Black T-Shirt",
+    name: "Footsteppa 30th Anniversary Classic Black T-Shirt",
     price: "£29.99",
-    images: ["/placeholder.svg", "/placeholder.svg", "/placeholder.svg", "/placeholder.svg"],
+    images: [
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+      "/placeholder.svg",
+    ],
     description:
-      "Celebrate 30 years of Rinse FM with this limited edition anniversary t-shirt. Features the iconic Rinse logo on the front and a special 30th anniversary design on the back.",
-    details: ["100% cotton", "Regular fit", "Crew neck", "Screen printed graphics", "Machine washable"],
+      "Celebrate 30 years of Footsteppa with this limited edition anniversary t-shirt. Features the iconic Footsteppa logo on the front and a special 30th anniversary design on the back.",
+    details: [
+      "100% cotton",
+      "Regular fit",
+      "Crew neck",
+      "Screen printed graphics",
+      "Machine washable",
+    ],
     sizes: ["S", "M", "L", "XL", "XXL"],
     relatedProducts: [
-      { name: "Rinse 30th Anniversary Classic White T-Shirt", price: "£29.99", image: "/placeholder.svg" },
-      { name: "Rinse Logo Hoodie", price: "£49.99", image: "/placeholder.svg" },
-      { name: "Kool FM Est. 1991 T-Shirt", price: "£29.99", image: "/placeholder.svg" },
-      { name: "Rinse Slipmats", price: "£14.99", image: "/placeholder.svg" },
+      {
+        name: "Footsteppa 30th Anniversary Classic White T-Shirt",
+        price: "£29.99",
+        image: "/placeholder.svg",
+      },
+      {
+        name: "Footsteppa Logo Hoodie",
+        price: "£49.99",
+        image: "/placeholder.svg",
+      },
+      {
+        name: "Kool FM Est. 1991 T-Shirt",
+        price: "£29.99",
+        image: "/placeholder.svg",
+      },
+      {
+        name: "Footsteppa Slipmats",
+        price: "£14.99",
+        image: "/placeholder.svg",
+      },
     ],
-  }
+  };
 }
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
-  const product = getProductData(params.slug)
+  const product = getProductData(params.slug);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -42,7 +69,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             </div>
             <div className="grid grid-cols-4 gap-2">
               {product.images.map((image, index) => (
-                <div key={index} className="aspect-square relative overflow-hidden rounded-lg">
+                <div
+                  key={index}
+                  className="aspect-square relative overflow-hidden rounded-lg"
+                >
                   <Image
                     src={image || "/placeholder.svg"}
                     alt={`${product.name} view ${index + 1}`}
@@ -58,7 +88,10 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
           {/* Product Info */}
           <div className="lg:w-1/2">
             <div className="mb-2">
-              <Link href="/shop" className="text-sm text-gray-400 hover:text-white">
+              <Link
+                href="/shop"
+                className="text-sm text-gray-400 hover:text-white"
+              >
                 Back to Shop
               </Link>
             </div>
@@ -69,7 +102,11 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
               <h2 className="text-sm font-semibold mb-2">Size</h2>
               <div className="flex flex-wrap gap-2">
                 {product.sizes.map((size) => (
-                  <Button key={size} variant={size === "M" ? "default" : "outline"} className="w-12 h-12">
+                  <Button
+                    key={size}
+                    variant={size === "M" ? "default" : "outline"}
+                    className="w-12 h-12"
+                  >
                     {size}
                   </Button>
                 ))}
@@ -111,7 +148,9 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                     className="transition-transform group-hover:scale-105"
                   />
                 </div>
-                <h3 className="font-semibold text-base group-hover:underline">{item.name}</h3>
+                <h3 className="font-semibold text-base group-hover:underline">
+                  {item.name}
+                </h3>
                 <p className="text-sm text-gray-400">{item.price}</p>
               </Link>
             ))}
@@ -119,5 +158,5 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
         </section>
       </div>
     </div>
-  )
+  );
 }

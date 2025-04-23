@@ -1,9 +1,9 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { ArrowLeft, ArrowRight } from "lucide-react"
-import { MainNav } from "@/components/main-nav"
-import { VideoCard } from "@/components/video-card"
-import { ChannelButton } from "@/components/channel-button"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft, ArrowRight } from "lucide-react";
+import { MainNav } from "@/components/main-nav";
+import { VideoCard } from "@/components/video-card";
+import { ChannelButton } from "@/components/channel-button";
 
 export default function Home() {
   return (
@@ -47,8 +47,8 @@ export default function Home() {
       <section className="py-8">
         <div className="container mx-auto">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <ChannelButton name="Rinse UK" href="/channels/uk" />
-            <ChannelButton name="Rinse France" href="/channels/france" />
+            <ChannelButton name="Footsteppa UK" href="/channels/uk" />
+            <ChannelButton name="Footsteppa France" href="/channels/france" />
             <ChannelButton name="Kool FM" href="/channels/kool" />
             <ChannelButton name="SWU FM" href="/channels/swu" />
           </div>
@@ -126,5 +126,5 @@ export default function Home() {
         </div>
       </section>
     </div>
-  )
+  );
 }

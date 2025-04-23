@@ -1,16 +1,16 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Play, Share } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Play, Share } from "lucide-react";
 
 // This is a mock function to simulate fetching episode data
 // In a real application, you would fetch this data from an API or database
 function getEpisodeData(slug: string) {
   return {
     title: "GREENTEA SELECTA",
-    channel: "Rinse UK",
+    channel: "Footsteppa UK",
     date: "27/02/2025",
     time: "12:00",
     genres: ["Jazz", "Experimental"],
@@ -32,7 +32,13 @@ function getEpisodeData(slug: string) {
         genres: ["Electronic"],
         image: "/placeholder.svg",
       },
-      { title: "feat. Birdsong", date: "26/09/2024", time: "12:00", genres: [], image: "/placeholder.svg" },
+      {
+        title: "feat. Birdsong",
+        date: "26/09/2024",
+        time: "12:00",
+        genres: [],
+        image: "/placeholder.svg",
+      },
       {
         title: "CARNIVAL SPESH",
         date: "22/08/2024",
@@ -48,11 +54,11 @@ function getEpisodeData(slug: string) {
         image: "/placeholder.svg",
       },
     ],
-  }
+  };
 }
 
 export default function EpisodePage({ params }: { params: { slug: string } }) {
-  const episode = getEpisodeData(params.slug)
+  const episode = getEpisodeData(params.slug);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -103,7 +109,9 @@ export default function EpisodePage({ params }: { params: { slug: string } }) {
         </div>
 
         <section className="mt-12">
-          <h2 className="text-2xl font-bold mb-4">More from {episode.artist}</h2>
+          <h2 className="text-2xl font-bold mb-4">
+            More from {episode.artist}
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {episode.moreEpisodes.map((ep, index) => (
               <Link href="#" key={index} className="group">
@@ -116,13 +124,19 @@ export default function EpisodePage({ params }: { params: { slug: string } }) {
                     className="transition-transform group-hover:scale-105"
                   />
                 </div>
-                <h3 className="font-semibold text-sm group-hover:underline">{ep.title}</h3>
+                <h3 className="font-semibold text-sm group-hover:underline">
+                  {ep.title}
+                </h3>
                 <p className="text-xs text-gray-400">
                   {ep.date} {ep.time}
                 </p>
                 <div className="flex flex-wrap gap-1 mt-1">
                   {ep.genres.map((genre, genreIndex) => (
-                    <Badge key={genreIndex} variant="outline" className="text-[10px] py-0">
+                    <Badge
+                      key={genreIndex}
+                      variant="outline"
+                      className="text-[10px] py-0"
+                    >
                       {genre}
                     </Badge>
                   ))}
@@ -134,7 +148,12 @@ export default function EpisodePage({ params }: { params: { slug: string } }) {
 
         <section className="mt-12">
           <div className="relative h-[300px] rounded-lg overflow-hidden">
-            <Image src="/placeholder.svg" alt={episode.artist} layout="fill" objectFit="cover" />
+            <Image
+              src="/placeholder.svg"
+              alt={episode.artist}
+              layout="fill"
+              objectFit="cover"
+            />
             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
             <div className="absolute bottom-8 left-8">
               <h2 className="text-4xl font-bold mb-4">{episode.artist}</h2>
@@ -144,5 +163,5 @@ export default function EpisodePage({ params }: { params: { slug: string } }) {
         </section>
       </div>
     </div>
-  )
+  );
 }

@@ -1,8 +1,8 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { ArrowLeft, ArrowRight, Play } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ArrowLeft, ArrowRight, Play } from "lucide-react";
 
 const releases = [
   {
@@ -61,7 +61,7 @@ const releases = [
     tags: ["Experimental", "Electronic"],
     slug: "aka-orange-willow-the-whisperer",
   },
-]
+];
 
 export default function LabelPage() {
   return (
@@ -70,7 +70,7 @@ export default function LabelPage() {
       <section className="relative h-[500px] overflow-hidden">
         <Image
           src="/placeholder.svg?height=500&width=1920"
-          alt="Rinse Label"
+          alt="Footsteppa Label"
           width={1920}
           height={500}
           className="absolute inset-0 w-full h-full object-cover brightness-75"
@@ -78,10 +78,11 @@ export default function LabelPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
         <div className="container mx-auto relative h-full flex items-center">
           <div className="max-w-2xl">
-            <h1 className="text-6xl font-bold mb-4">Rinse Recordings</h1>
+            <h1 className="text-6xl font-bold mb-4">Footsteppa Recordings</h1>
             <p className="text-xl mb-6">
-              Rinse has been at the center of UK underground music for over 30 years, championing new sounds and artists
-              from grime to dubstep, UK funky to house and beyond.
+              Footsteppa has been at the center of UK underground music for over
+              30 years, championing new sounds and artists from grime to
+              dubstep, UK funky to house and beyond.
             </p>
             <div className="flex gap-4">
               <Button className="gap-2">
@@ -108,7 +109,11 @@ export default function LabelPage() {
           <h2 className="text-2xl font-bold mb-6">Latest Releases</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
             {releases.map((release, index) => (
-              <Link href={`/releases/${release.slug}`} key={index} className="group">
+              <Link
+                href={`/releases/${release.slug}`}
+                key={index}
+                className="group"
+              >
                 <div className="aspect-square relative overflow-hidden rounded-lg mb-3">
                   <Image
                     src={release.image || "/placeholder.svg"}
@@ -118,12 +123,18 @@ export default function LabelPage() {
                     className="transition-transform group-hover:scale-105"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
-                    <Button size="sm" variant="ghost" className="rounded-full bg-white text-black hover:bg-gray-200">
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="rounded-full bg-white text-black hover:bg-gray-200"
+                    >
                       <Play className="h-4 w-4 fill-current" />
                     </Button>
                   </div>
                 </div>
-                <h3 className="font-semibold text-base group-hover:underline">{release.title}</h3>
+                <h3 className="font-semibold text-base group-hover:underline">
+                  {release.title}
+                </h3>
                 <p className="text-sm text-gray-400 mb-2">{release.date}</p>
                 <div className="flex flex-wrap gap-2">
                   {release.tags.map((tag, tagIndex) => (
@@ -159,7 +170,9 @@ export default function LabelPage() {
                     className="transition-transform group-hover:scale-105"
                   />
                 </div>
-                <h3 className="font-semibold text-center text-sm group-hover:underline">Artist Name</h3>
+                <h3 className="font-semibold text-center text-sm group-hover:underline">
+                  Artist Name
+                </h3>
               </Link>
             ))}
           </div>
@@ -182,12 +195,18 @@ export default function LabelPage() {
                     className="transition-transform group-hover:scale-105"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
-                    <Button size="sm" variant="ghost" className="rounded-full bg-white text-black hover:bg-gray-200">
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="rounded-full bg-white text-black hover:bg-gray-200"
+                    >
                       <Play className="h-4 w-4 fill-current" />
                     </Button>
                   </div>
                 </div>
-                <h3 className="font-semibold text-base group-hover:underline">Rinse Compilation Vol. {item}</h3>
+                <h3 className="font-semibold text-base group-hover:underline">
+                  Footsteppa Compilation Vol. {item}
+                </h3>
                 <p className="text-sm text-gray-400">Various Artists</p>
               </Link>
             ))}
@@ -195,5 +214,5 @@ export default function LabelPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }

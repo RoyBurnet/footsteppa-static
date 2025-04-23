@@ -1,7 +1,7 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Play, Share, Download, ExternalLink } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Play, Share, Download, ExternalLink } from "lucide-react";
 
 // This is a mock function to simulate fetching release data
 function getReleaseData(slug: string) {
@@ -25,16 +25,28 @@ function getReleaseData(slug: string) {
       { name: "Bandcamp", url: "#" },
     ],
     relatedReleases: [
-      { title: "Chau Bebe w/ Bea Pelea & Pipo Beatz", artist: "Lizz", image: "/placeholder.svg" },
-      { title: "Shadow", artist: "Oko x Cameron Hayes", image: "/placeholder.svg" },
-      { title: "Higher (feat. Nathan Smoker)", artist: "Oko", image: "/placeholder.svg" },
+      {
+        title: "Chau Bebe w/ Bea Pelea & Pipo Beatz",
+        artist: "Lizz",
+        image: "/placeholder.svg",
+      },
+      {
+        title: "Shadow",
+        artist: "Oko x Cameron Hayes",
+        image: "/placeholder.svg",
+      },
+      {
+        title: "Higher (feat. Nathan Smoker)",
+        artist: "Oko",
+        image: "/placeholder.svg",
+      },
       { title: "Energy", artist: "James Pepper", image: "/placeholder.svg" },
     ],
-  }
+  };
 }
 
 export default function ReleasePage({ params }: { params: { slug: string } }) {
-  const release = getReleaseData(params.slug)
+  const release = getReleaseData(params.slug);
 
   return (
     <div className="min-h-screen bg-black text-white">
@@ -51,13 +63,18 @@ export default function ReleasePage({ params }: { params: { slug: string } }) {
           </div>
           <div className="md:w-2/3">
             <div className="mb-2">
-              <Link href="/label" className="text-sm text-gray-400 hover:text-white">
-                Rinse Recordings
+              <Link
+                href="/label"
+                className="text-sm text-gray-400 hover:text-white"
+              >
+                Footsteppa Recordings
               </Link>
             </div>
             <h1 className="text-4xl font-bold mb-1">{release.title}</h1>
             <h2 className="text-2xl text-gray-300 mb-4">{release.artist}</h2>
-            <p className="text-gray-400 mb-6">Released: {release.releaseDate}</p>
+            <p className="text-gray-400 mb-6">
+              Released: {release.releaseDate}
+            </p>
 
             <div className="flex gap-4 mb-8">
               <Button className="gap-2">
@@ -80,9 +97,16 @@ export default function ReleasePage({ params }: { params: { slug: string } }) {
               <h3 className="text-xl font-semibold mb-4">Tracklist</h3>
               <div className="space-y-2">
                 {release.tracks.map((track, index) => (
-                  <div key={index} className="flex items-center justify-between p-3 bg-gray-900 rounded-lg">
+                  <div
+                    key={index}
+                    className="flex items-center justify-between p-3 bg-gray-900 rounded-lg"
+                  >
                     <div className="flex items-center gap-3">
-                      <Button size="icon" variant="ghost" className="rounded-full h-8 w-8">
+                      <Button
+                        size="icon"
+                        variant="ghost"
+                        className="rounded-full h-8 w-8"
+                      >
                         <Play className="h-4 w-4" />
                       </Button>
                       <span>{track.title}</span>
@@ -123,12 +147,18 @@ export default function ReleasePage({ params }: { params: { slug: string } }) {
                     className="transition-transform group-hover:scale-105"
                   />
                   <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
-                    <Button size="sm" variant="ghost" className="rounded-full bg-white text-black hover:bg-gray-200">
+                    <Button
+                      size="sm"
+                      variant="ghost"
+                      className="rounded-full bg-white text-black hover:bg-gray-200"
+                    >
                       <Play className="h-4 w-4 fill-current" />
                     </Button>
                   </div>
                 </div>
-                <h3 className="font-semibold text-base group-hover:underline">{item.title}</h3>
+                <h3 className="font-semibold text-base group-hover:underline">
+                  {item.title}
+                </h3>
                 <p className="text-sm text-gray-400">{item.artist}</p>
               </Link>
             ))}
@@ -136,5 +166,5 @@ export default function ReleasePage({ params }: { params: { slug: string } }) {
         </section>
       </div>
     </div>
-  )
+  );
 }

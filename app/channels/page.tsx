@@ -1,14 +1,15 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Play } from "lucide-react"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Play } from "lucide-react";
 
 const channels = [
   {
-    name: "Rinse UK",
-    description: "The original Rinse FM channel broadcasting from London since 1994.",
+    name: "Footsteppa UK",
+    description:
+      "The original Footsteppa channel broadcasting from London since 1994.",
     image: "/placeholder.svg",
     slug: "uk",
     currentShow: {
@@ -22,8 +23,9 @@ const channels = [
     ],
   },
   {
-    name: "Rinse France",
-    description: "Broadcasting from Paris, bringing you the best in French electronic music.",
+    name: "Footsteppa France",
+    description:
+      "Broadcasting from Paris, bringing you the best in French electronic music.",
     image: "/placeholder.svg",
     slug: "france",
     currentShow: {
@@ -53,7 +55,8 @@ const channels = [
   },
   {
     name: "SWU FM",
-    description: "South West Underground - Bristol's underground music station.",
+    description:
+      "South West Underground - Bristol's underground music station.",
     image: "/placeholder.svg",
     slug: "swu",
     currentShow: {
@@ -66,7 +69,7 @@ const channels = [
       { name: "Surgeons Girl", time: "18:00 - 20:00" },
     ],
   },
-]
+];
 
 export default function ChannelsPage() {
   return (
@@ -76,9 +79,17 @@ export default function ChannelsPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {channels.map((channel) => (
-            <div key={channel.slug} className="bg-gray-900 rounded-lg overflow-hidden">
+            <div
+              key={channel.slug}
+              className="bg-gray-900 rounded-lg overflow-hidden"
+            >
               <div className="relative h-48">
-                <Image src={channel.image || "/placeholder.svg"} alt={channel.name} layout="fill" objectFit="cover" />
+                <Image
+                  src={channel.image || "/placeholder.svg"}
+                  alt={channel.name}
+                  layout="fill"
+                  objectFit="cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 p-4">
                   <h2 className="text-2xl font-bold">{channel.name}</h2>
@@ -89,18 +100,30 @@ export default function ChannelsPage() {
 
                 {/* Current Show */}
                 <div className="mb-4">
-                  <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">On Air Now</h3>
+                  <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">
+                    On Air Now
+                  </h3>
                   <div className="flex items-center justify-between bg-gray-800 p-3 rounded-lg">
                     <div className="flex items-center gap-3">
                       <Avatar className="h-10 w-10">
-                        <AvatarFallback>{channel.currentShow.name[0]}</AvatarFallback>
+                        <AvatarFallback>
+                          {channel.currentShow.name[0]}
+                        </AvatarFallback>
                       </Avatar>
                       <div>
-                        <p className="font-semibold">{channel.currentShow.name}</p>
-                        <p className="text-sm text-gray-400">{channel.currentShow.time}</p>
+                        <p className="font-semibold">
+                          {channel.currentShow.name}
+                        </p>
+                        <p className="text-sm text-gray-400">
+                          {channel.currentShow.time}
+                        </p>
                       </div>
                     </div>
-                    <Button size="icon" variant="ghost" className="rounded-full">
+                    <Button
+                      size="icon"
+                      variant="ghost"
+                      className="rounded-full"
+                    >
                       <Play className="h-4 w-4" />
                     </Button>
                   </div>
@@ -108,10 +131,15 @@ export default function ChannelsPage() {
 
                 {/* Upcoming Shows */}
                 <div>
-                  <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">Coming Up</h3>
+                  <h3 className="text-sm font-semibold text-gray-500 uppercase mb-2">
+                    Coming Up
+                  </h3>
                   <div className="space-y-2">
                     {channel.upcomingShows.map((show, index) => (
-                      <div key={index} className="flex items-center justify-between p-2 hover:bg-gray-800 rounded-lg">
+                      <div
+                        key={index}
+                        className="flex items-center justify-between p-2 hover:bg-gray-800 rounded-lg"
+                      >
                         <div>
                           <p className="font-medium">{show.name}</p>
                           <p className="text-sm text-gray-400">{show.time}</p>
@@ -135,5 +163,5 @@ export default function ChannelsPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

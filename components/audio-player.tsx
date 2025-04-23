@@ -1,33 +1,33 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
-import { Play, Minimize2, Plus } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { useState } from "react";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Play, Minimize2, Plus } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 const channels = [
-  { name: "Rinse UK", slug: "uk" },
-  { name: "Rinse France", slug: "france" },
+  { name: "Footsteppa UK", slug: "uk" },
+  { name: "Footsteppa France", slug: "france" },
   { name: "Kool FM", slug: "kool" },
   { name: "SWU FM", slug: "swu" },
-]
+];
 
 interface AudioPlayerProps {
-  className?: string
+  className?: string;
 }
 
 export function AudioPlayer({ className }: AudioPlayerProps) {
-  const [isExpanded, setIsExpanded] = useState(false)
-  const [currentChannel, setCurrentChannel] = useState(channels[0])
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [currentChannel, setCurrentChannel] = useState(channels[0]);
 
   const currentShow = {
     name: "Interplanetary Criminal",
     time: "21:00",
     image: "/placeholder.svg",
-  }
+  };
 
   return (
     <>
@@ -37,7 +37,7 @@ export function AudioPlayer({ className }: AudioPlayerProps) {
           "fixed top-0 left-0 right-0 h-16 bg-black/90 backdrop-blur-sm z-50 flex items-center px-4",
           !isExpanded && "border-b border-white/10",
           isExpanded && "hidden",
-          className,
+          className
         )}
       >
         <div className="flex items-center flex-1 gap-3">
@@ -52,7 +52,10 @@ export function AudioPlayer({ className }: AudioPlayerProps) {
             <span className="text-sm text-gray-400">
               {currentChannel.name} {currentShow.time}
             </span>
-            <Badge variant="outline" className="h-5 text-[10px] uppercase bg-black/50 border-white/10">
+            <Badge
+              variant="outline"
+              className="h-5 text-[10px] uppercase bg-black/50 border-white/10"
+            >
               On Air
             </Badge>
           </div>
@@ -62,7 +65,12 @@ export function AudioPlayer({ className }: AudioPlayerProps) {
           <Button size="icon" variant="ghost" className="rounded-full">
             <Play className="h-4 w-4" />
           </Button>
-          <Button size="icon" variant="ghost" className="rounded-full" onClick={() => setIsExpanded(true)}>
+          <Button
+            size="icon"
+            variant="ghost"
+            className="rounded-full"
+            onClick={() => setIsExpanded(true)}
+          >
             <Plus className="h-4 w-4" />
           </Button>
         </div>
@@ -72,7 +80,12 @@ export function AudioPlayer({ className }: AudioPlayerProps) {
       {isExpanded && (
         <div className="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex flex-col">
           <div className="absolute top-4 right-4">
-            <Button size="icon" variant="ghost" className="rounded-full" onClick={() => setIsExpanded(false)}>
+            <Button
+              size="icon"
+              variant="ghost"
+              className="rounded-full"
+              onClick={() => setIsExpanded(false)}
+            >
               <Minimize2 className="h-4 w-4" />
             </Button>
           </div>
@@ -93,7 +106,10 @@ export function AudioPlayer({ className }: AudioPlayerProps) {
               </div>
               <div className="absolute bottom-0 left-0 right-0 p-4">
                 <h2 className="text-2xl font-bold mb-2">{currentShow.name}</h2>
-                <Badge variant="outline" className="bg-black/50 border-white/10">
+                <Badge
+                  variant="outline"
+                  className="bg-black/50 border-white/10"
+                >
                   ON AIR
                 </Badge>
               </div>
@@ -112,7 +128,10 @@ export function AudioPlayer({ className }: AudioPlayerProps) {
               <Button
                 key={channel.slug}
                 variant="ghost"
-                className={cn("rounded-full", channel.slug === currentChannel.slug && "bg-white/10")}
+                className={cn(
+                  "rounded-full",
+                  channel.slug === currentChannel.slug && "bg-white/10"
+                )}
                 onClick={() => setCurrentChannel(channel)}
               >
                 <Avatar className="h-8 w-8">
@@ -124,5 +143,5 @@ export function AudioPlayer({ className }: AudioPlayerProps) {
         </div>
       )}
     </>
-  )
+  );
 }

@@ -1,31 +1,38 @@
-import Image from "next/image"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
-const categories = ["All", "T-Shirts", "Hoodies", "Accessories", "Vinyl", "Digital"]
+const categories = [
+  "All",
+  "T-Shirts",
+  "Hoodies",
+  "Accessories",
+  "Vinyl",
+  "Digital",
+];
 
 const products = [
   {
-    name: "Kool Logo Hoodie",
+    name: "Footsteppa Logo Hoodie",
     price: "£49.99",
     image: "/placeholder.svg",
     category: "Hoodies",
-    slug: "kool-logo-hoodie",
+    slug: "footsteppa-logo-hoodie",
   },
   {
-    name: "Rinse Logo Hoodie",
+    name: "Footsteppa Logo Hoodie",
     price: "£49.99",
     image: "/placeholder.svg",
     category: "Hoodies",
-    slug: "rinse-logo-hoodie-1",
+    slug: "footsteppa-logo-hoodie-1",
   },
   {
-    name: "Rinse 30th Anniversary Classic Black T-Shirt",
+    name: "Footsteppa 30th Anniversary Classic Black T-Shirt",
     price: "£29.99",
     image: "/placeholder.svg",
     category: "T-Shirts",
-    slug: "rinse-30th-anniversary-classic-black-t-shirt",
+    slug: "footsteppa-30th-anniversary-classic-black-t-shirt",
   },
   {
     name: "Kool FM Est. 1991 T-Shirt Limited Edition Green",
@@ -35,11 +42,11 @@ const products = [
     slug: "kool-fm-est-1991-t-shirt-limited-edition-green",
   },
   {
-    name: "Rinse Worldwide T-Shirt Limited Edition",
+    name: "Footsteppa Worldwide T-Shirt Limited Edition",
     price: "£29.99",
     image: "/placeholder.svg",
     category: "T-Shirts",
-    slug: "rinse-worldwide-t-shirt-limited-edition",
+    slug: "footsteppa-worldwide-t-shirt-limited-edition",
   },
   {
     name: "Jungle Fever Short Sleeve Black T-Shirt",
@@ -49,20 +56,20 @@ const products = [
     slug: "jungle-fever-short-sleeve-black-t-shirt",
   },
   {
-    name: "Rinse R Sticker",
+    name: "Footsteppa R Sticker",
     price: "£2.99",
     image: "/placeholder.svg",
     category: "Accessories",
-    slug: "rinse-r-sticker",
+    slug: "footsteppa-r-sticker",
   },
   {
-    name: "Rinse Slipmats",
+    name: "Footsteppa Slipmats",
     price: "£14.99",
     image: "/placeholder.svg",
     category: "Accessories",
-    slug: "rinse-slipmats",
+    slug: "footsteppa-slipmats",
   },
-]
+];
 
 export default function ShopPage() {
   return (
@@ -73,7 +80,11 @@ export default function ShopPage() {
         {/* Categories */}
         <div className="flex flex-wrap gap-2 mb-8">
           {categories.map((category) => (
-            <Button key={category} variant={category === "All" ? "default" : "outline"} size="sm">
+            <Button
+              key={category}
+              variant={category === "All" ? "default" : "outline"}
+              size="sm"
+            >
               {category}
             </Button>
           ))}
@@ -92,9 +103,12 @@ export default function ShopPage() {
             <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
             <div className="absolute bottom-0 left-0 p-8">
               <Badge className="mb-2 bg-white text-black">New Release</Badge>
-              <h2 className="text-4xl font-bold mb-4">Rinse 30th Anniversary Collection</h2>
+              <h2 className="text-4xl font-bold mb-4">
+                Footsteppa 30th Anniversary Collection
+              </h2>
               <p className="text-xl mb-6 max-w-xl">
-                Celebrate 30 years of underground music with our limited edition collection.
+                Celebrate 30 years of underground music with our limited edition
+                collection.
               </p>
               <Button size="lg">Shop Now</Button>
             </div>
@@ -104,7 +118,11 @@ export default function ShopPage() {
         {/* Products Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {products.map((product, index) => (
-            <Link href={`/shop/products/${product.slug}`} key={index} className="group">
+            <Link
+              href={`/shop/products/${product.slug}`}
+              key={index}
+              className="group"
+            >
               <div className="aspect-square relative overflow-hidden rounded-lg mb-3 bg-gray-800">
                 <Image
                   src={product.image || "/placeholder.svg"}
@@ -114,7 +132,9 @@ export default function ShopPage() {
                   className="transition-transform group-hover:scale-105"
                 />
               </div>
-              <h3 className="font-semibold text-base group-hover:underline">{product.name}</h3>
+              <h3 className="font-semibold text-base group-hover:underline">
+                {product.name}
+              </h3>
               <p className="text-sm text-gray-400">{product.price}</p>
               <Badge variant="outline" className="mt-2 text-xs">
                 {product.category}
@@ -126,9 +146,12 @@ export default function ShopPage() {
         {/* Newsletter */}
         <div className="mt-16 bg-gray-900 rounded-lg p-8">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-2xl font-bold mb-4">Subscribe to our newsletter</h2>
+            <h2 className="text-2xl font-bold mb-4">
+              Subscribe to our newsletter
+            </h2>
             <p className="text-gray-400 mb-6">
-              Be the first to know about new releases, restocks and exclusive offers.
+              Be the first to know about new releases, restocks and exclusive
+              offers.
             </p>
             <div className="flex gap-2 max-w-md mx-auto">
               <input
@@ -142,5 +165,5 @@ export default function ShopPage() {
         </div>
       </div>
     </div>
-  )
+  );
 }

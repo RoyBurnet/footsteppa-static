@@ -1,14 +1,14 @@
-import Image from "next/image"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { Avatar, AvatarFallback } from "@/components/ui/avatar"
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const channels = [
-  { name: "Rinse UK", slug: "uk" },
-  { name: "Rinse France", slug: "france" },
+  { name: "Footsteppa UK", slug: "uk" },
+  { name: "Footsteppa France", slug: "france" },
   { name: "Kool FM", slug: "kool" },
   { name: "SWU FM", slug: "swu" },
-]
+];
 
 const tags = [
   "Amapiano",
@@ -35,7 +35,7 @@ const tags = [
   "Jazz",
   "Jungle",
   "Latin",
-]
+];
 
 const artists = [
   {
@@ -46,7 +46,8 @@ const artists = [
   },
   {
     name: "[re]sources",
-    description: "[re]sources est un label parisien piloté par le DJ et producteur Tommy Kid.",
+    description:
+      "[re]sources est un label parisien piloté par le DJ et producteur Tommy Kid.",
     image: "/placeholder.svg",
     tags: ["Bass", "Funky", "Dubstep", "Footwork", "Garage"],
   },
@@ -62,7 +63,7 @@ const artists = [
     image: "/placeholder.svg",
     tags: ["Dubstep", "Experimental", "Multigenre"],
   },
-]
+];
 
 export default function ArtistsPage() {
   return (
@@ -77,12 +78,20 @@ export default function ArtistsPage() {
         <div className="space-y-8 mb-12">
           {/* Channel Filter */}
           <div>
-            <h2 className="text-sm font-medium text-gray-400 mb-4">Filter by channel</h2>
+            <h2 className="text-sm font-medium text-gray-400 mb-4">
+              Filter by channel
+            </h2>
             <div className="flex flex-wrap gap-3">
               {channels.map((channel) => (
-                <Button key={channel.slug} variant="outline" className="rounded-full border-gray-800 hover:bg-gray-800">
+                <Button
+                  key={channel.slug}
+                  variant="outline"
+                  className="rounded-full border-gray-800 hover:bg-gray-800"
+                >
                   <Avatar className="h-5 w-5 mr-2">
-                    <AvatarFallback className="text-xs bg-gray-800">{channel.name[0]}</AvatarFallback>
+                    <AvatarFallback className="text-xs bg-gray-800">
+                      {channel.name[0]}
+                    </AvatarFallback>
                   </Avatar>
                   <span className="text-sm">{channel.name}</span>
                 </Button>
@@ -92,7 +101,9 @@ export default function ArtistsPage() {
 
           {/* Tag Filter */}
           <div>
-            <h2 className="text-sm font-medium text-gray-400 mb-4">Filter by tag</h2>
+            <h2 className="text-sm font-medium text-gray-400 mb-4">
+              Filter by tag
+            </h2>
             <div className="flex flex-wrap gap-2">
               {tags.map((tag) => (
                 <Badge
@@ -108,7 +119,9 @@ export default function ArtistsPage() {
 
           {/* Letter Filter */}
           <div>
-            <h2 className="text-sm font-medium text-gray-400 mb-4">Filter by letter</h2>
+            <h2 className="text-sm font-medium text-gray-400 mb-4">
+              Filter by letter
+            </h2>
             <div className="flex flex-wrap gap-2">
               {[..."abcdefghijklmnopqrstuvwxyz#"].map((letter) => (
                 <Button
@@ -141,10 +154,18 @@ export default function ArtistsPage() {
               </div>
               <div className="p-4">
                 <h3 className="text-lg font-semibold mb-2">{artist.name}</h3>
-                {artist.description && <p className="text-sm text-gray-400 mb-3 line-clamp-2">{artist.description}</p>}
+                {artist.description && (
+                  <p className="text-sm text-gray-400 mb-3 line-clamp-2">
+                    {artist.description}
+                  </p>
+                )}
                 <div className="flex flex-wrap gap-2">
                   {artist.tags.map((tag) => (
-                    <Badge key={tag} variant="outline" className="text-xs border-gray-700">
+                    <Badge
+                      key={tag}
+                      variant="outline"
+                      className="text-xs border-gray-700"
+                    >
                       {tag}
                     </Badge>
                   ))}
@@ -155,5 +176,5 @@ export default function ArtistsPage() {
         </div>
       </div>
     </main>
-  )
+  );
 }
